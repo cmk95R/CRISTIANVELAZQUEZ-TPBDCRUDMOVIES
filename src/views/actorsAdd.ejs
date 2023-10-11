@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <%- include("../views/partials/head.ejs") %>
+
+</head>
+
+<body>
+    <header>
+   
+        <%- include("../views/partials/header.ejs") %>
+    
+    </header>
+<body>
+
+    <h1 class="titulo">Agregar Actor</h1>
+    <br>
+    <form action="/actors/create" method="POST">
+        <div class="form-outline mb-2">
+            <label class="form-label" for="first_name">NOMBRE</label>
+            <input type="text" id="first_name" class="form-control" name="first_name" required />
+        </div>
+    
+        <div class="form-outline mb-4">
+            <label class="form-label" for="last_name">APELLIDO</label>
+            <input type="text" id="last_name" class="form-control" name="last_name" required />
+        </div>
+    
+        <div class="form-outline mb-4">
+            <label class="form-label" for="rating">RATING</label>
+            <input type="number" id="rating" class="form-control" name="rating" required />
+        </div>
+    
+        <div class="form-outline mb-4">
+            <label class="form-label" for="favorite_movie_id">PELÍCULA FAVORITA ID</label>
+            <input type="number" id="favorite_movie_id" class="form-control" name="favorite_movie_id" required />
+        </div>
+    
+        <div class="button">
+            <button type="submit" class="btn btn-primary btn-block mb-4">AGREGAR</button>
+            <a href="/actors" class="btn btn-primary btn-block mb-4">LISTADO DE ACTORES</a>
+        </div>
+    </form>
+    
+</body>
+<footer>
+    <%- include("../views/partials/footer.ejs") %>
+
+   </footer>
+</html>

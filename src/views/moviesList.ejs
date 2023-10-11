@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("../views/partials/head.ejs") %>
+
+</head>
+
+<body>
+    <header>
+   
+        <%- include("../views/partials/header.ejs") %>
+    
+    </header>
+    <div class="d-flex justify-content-center">
+        <h1>LISTADO DE PELÍCULAS</h1>
+    </div>
+    <br>
+    <p>
+        <a class="botonAgregar" href="/movies/add">AGREGAR PELICULA</a>
+        <a class="botonVolver" href="/">INICIO</a>
+
+    </p>
+    <br>
+    
+    <br>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Genre</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (let i = 0; i < movies.length; i++) { %>
+            <tr>
+              <th scope="row"><%= i + 1 %></th>
+              <td>
+                <a href="/movies/detail/<%= movies[i].id %>"><%= movies[i].title %></a>
+              </td>
+              <td>
+                <% if (movies[i].genre) { %>
+                  <span><%= movies[i].genre.name %></span>
+                <% } %>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+</body>
+<footer>
+    <%- include("../views/partials/footer.ejs") %>
+
+   </footer>
+</html>

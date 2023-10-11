@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <%- include("../views/partials/head.ejs") %>
+    
+    </head>
+    
+    <body>
+        <header>
+       
+            <%- include("../views/partials/header.ejs") %>
+        
+        </header>
+<body>
+
+    <h1><%= actor.first_name %> <%= actor.last_name %></h1>
+    <br>
+    <p>RATING: <%= actor.rating %></p>
+    <br>
+    
+    <!-- Muestra las películas en las que el actor ha participado -->
+    <h3>Películas en las que ha participado:</h3>
+    <% if (actor.movies) { %>
+        <% for (let i = 0; i < actor.movies.length; i++) { %>
+            <p><%= actor.movies[i].title %></p>
+        <% } %>
+    <% } %>
+    <br>
+    <section>
+        <!-- Aquí debes colocar los botones de Modificar - Borrar y Listado de Actores -->
+        <a class="botonAgregar" href="/actors/edit/<%= actor.id %>">Editar Actor</a>
+        <a class="botonAgregar" href="/actors/delete/<%= actor.id %>">Borrar Actor</a>
+    </section>
+</body>
+<footer>
+    <%- include("../views/partials/footer.ejs") %>
+
+   </footer>
+</html>

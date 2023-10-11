@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("../views/partials/head.ejs") %>
+
+</head>
+
+<body>
+    <header>
+   
+        <%- include("../views/partials/header.ejs") %>
+    
+    </header>
+<body>
+    <div class="d-flex justify-content-center">
+        <h1>LISTADO DE ACTORES</h1>    
+    </div>
+
+    <br>
+    <br>
+    <p>
+        <a class="botonAgregar" href="/actors/add">AGREGAR ACTOR</a>
+        <a class="botonVolver" href="/">INICIO</a>
+
+    </p>
+    <br>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NOMBRE COMPLETO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (let i = 0; i < actors.length; i++) { %>
+            <tr>
+              <th scope="row"><%= i + 1 %></th>
+              <td>
+                <a href="/actors/detail/<%= actors[i].id %>"><%= actors[i].first_name %>, <%= actors[i].last_name %> </a>
+              </td>
+              <td>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+
+    
+</body>
+<footer>
+    <%- include("../views/partials/footer.ejs") %>
+
+   </footer>
+</html>

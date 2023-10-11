@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("../views/partials/head.ejs") %>
+</head>
+<body>
+    <header>
+        <%- include("../views/partials/header.ejs") %>
+    </header>
+
+    <h1 class="titulo">AGREGAR PELÍCULA</h1>
+    <br>
+
+    <form action="/movies/create" method="POST">
+        <div class="form-outline mb-2 form-control">
+            <label class="form-label" for="title">NOMBRE DE LA PELÍCULA</label>
+            <input type="text" id="title" class="form-control" name="title" required />
+        </div>
+
+        <div class="form-outline mb-4 form-control">
+            <label class="form-label" for="rating">RATING</label>
+            <input type="number" id="rating" class="form-control" name="rating" required />
+        </div>
+
+        <div class="form-outline mb-4 form-control">
+            <label class="form-label" for="awards">PREMIOS AWARDS</label>
+            <input type="number" id="awards" class="form-control" name="awards" required />
+        </div>
+
+        <div class="form-outline mb-4 form-control">
+            <label class="form-label" for="release_date">FECHA DE ESTRENO</label>
+            <input type="date" id="release_date" class="form-control" name="release_date" required />
+        </div>
+
+        <div class="form-outline mb-4 form-control">
+            <label class="form-label" for="length">DURACIÓN DE LA PELÍCULA</label>
+            <input type="number" id="length" class="form-control" name="length" required />
+        </div>
+
+        <div class="form-outline mb-4 form-control">
+            <label class="form-label" for="genre_id">GÉNERO</label>
+            <select id="genre_id" class="form-control" name="genre_id" required>
+                <option value="" disabled selected>- SELECCIONAR GÉNERO -</option>
+                <% allGenres.forEach(genre => { %>
+                <option value="<%= genre.id %>"><%= genre.name %></option>
+                <% }); %>
+            </select>
+        </div>
+        <div class="button">
+            <button type="submit" class="btn btn-primary btn-block mb-4">AGREGAR</button>
+            <a href="/movies" class="btn btn-primary btn-block mb-4">LISTADO DE PELICULAS</a>
+        </div>
+    </form>
+</body>
+<footer>
+    <%- include("../views/partials/footer.ejs") %>
+
+   </footer>
+</html>

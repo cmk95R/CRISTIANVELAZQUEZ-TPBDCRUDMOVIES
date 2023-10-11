@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("../views/partials/head.ejs") %>
+
+</head>
+
+<body>
+    <header>
+   
+        <%- include("../views/partials/header.ejs") %>
+    
+    </header>
+<body>
+
+    <div class="d-flex justify-content-center">
+        <h1>LISTADO DE GENEROS</h1>    
+    </div>
+    <br>
+    
+    <br>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">GENEROS</th>
+            <th scope="col">RANKING</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <% for (let i = 0; i < genres.length; i++) { %>
+            <tr>
+              <th scope="row"><%= i + 1 %></th>
+              <td>
+                <a href="/genres/detail/<%= genres[i].id %>"><%= genres[i].name %></a>
+              </td>
+              <td>
+                <a href="/genres/detail/<%= genres[i].id %>"><%= genres[i].ranking %></a>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    
+</body>
+<footer>
+    <%- include("../views/partials/footer.ejs") %>
+
+   </footer>
+</html>
